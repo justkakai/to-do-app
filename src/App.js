@@ -22,7 +22,7 @@ function App() {
           return (
             <div className='toDoItem'>
               <li className="arrayItems">{item}</li>
-              <button>done!</button>
+              <button>remove</button>
             </div>
           )
         })}
