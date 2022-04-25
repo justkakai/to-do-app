@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <h1>You have {theArray.length} items on your to-do list</h1>
-      <div className='inputContainer'>
+      <div className='input-container'>
         <input type="text" onChange={(e) => setInputToAdd(e.target.value)} value={inputToAdd} />
         <button onClick={() => setArrayItem([...theArray, inputToAdd])}>Add item</button>
       </div>
