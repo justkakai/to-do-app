@@ -3,12 +3,14 @@ import './App.css';
 
 function App() {
 
-  const [theArray, setArrayItem] = useState([]);
+  const initialArray = JSON.parse(localStorage.getItem('theArray')) || [];
+
+  const [theArray, setArrayItem] = useState(initialArray);
   const [inputToAdd, setInputToAdd] = useState("");
 
-  // useEffect(() => {
-  //   array.push(listItem);
-  // }, [listItem])
+  useEffect(() => {
+    localStorage.setItem('theArray', JSON.stringify(theArray));
+  }, [theArray])
 
   return (
     <div className="App">
