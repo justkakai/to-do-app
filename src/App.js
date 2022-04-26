@@ -34,7 +34,7 @@ function App() {
         <input type="text" onChange={(e) => setInputToAdd(e.target.value)} value={inputToAdd} />
         <button onClick={() => setArrayItem([...theArray, inputToAdd])}>Add item</button>
       </div>
-      <ul>
+      <ul className='listing'>
         {theArray.map(item => {
           return (
             <div className='toDoItem'>
