@@ -11,6 +11,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: url(../public/gradient.png);
+  /* background-position: bottom; */
   background-repeat: no-repeat;
   background-size: cover;
 }
