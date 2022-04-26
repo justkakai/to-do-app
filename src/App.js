@@ -12,6 +12,21 @@ function App() {
     localStorage.setItem('theArray', JSON.stringify(theArray));
   }, [theArray])
 
+  /*
+  useEffect(() => {
+    console.log(theArray.indexOf(itemToRemove));
+    theArray.splice(theArray.indexOf(itemToRemove), 1);
+    setArrayItem(theArray);
+    console.log('itemToRemove', itemToRemove);
+    console.log(theArray);
+  }, [itemToRemove])
+  */
+
+  const removeItem = function (item) {
+    theArray.splice(theArray.indexOf(item), 1);
+    setArrayItem([...theArray]);
+  }
+
   return (
     <div className="App">
       <h1>You have {theArray.length} items on your to-do list</h1>
@@ -24,7 +39,7 @@ function App() {
           return (
             <div className='toDoItem'>
               <li className="arrayItems">{item}</li>
-              <button>remove</button>
+              <button onClick={() => {removeItem(item)}}>remove</button>
             </div>
           )
         })}
@@ -34,3 +49,5 @@ function App() {
 }
 
 export default App;
+
+
