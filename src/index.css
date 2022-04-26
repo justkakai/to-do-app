@@ -10,7 +10,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url(../public/gradient4.png);
+  background: url(../public/gradient.png);
   background-repeat: no-repeat;
   background-size: cover;
 }

@@ -12,6 +12,11 @@ function App() {
     localStorage.setItem('theArray', JSON.stringify(theArray));
   }, [theArray])
 
+  const clearInput = function() {
+    setArrayItem([...theArray, inputToAdd]);
+    setInputToAdd("");
+  }
+
   const removeItem = function (item) {
     theArray.splice(theArray.indexOf(item), 1);
     setArrayItem([...theArray]);
@@ -27,7 +32,7 @@ function App() {
       {theArray.length === 1? <h1>you have {theArray.length} item on your to-do list</h1> : <h1>you have {theArray.length} items on your to-do list</h1>}
       <div className='input-container'>
         <input type="text" onChange={(e) => setInputToAdd(e.target.value)} value={inputToAdd} />
-        <button onClick={() => setArrayItem([...theArray, inputToAdd])}>add item</button>
+        <button onClick={clearInput}>add to list</button>
       </div>
       <ul className='listing'>
         {theArray.map((item, index) => {
