@@ -17,6 +17,11 @@ function App() {
     setArrayItem([...theArray]);
   }
 
+  const editItem = function(item) {
+    theArray.splice(theArray.indexOf(item), 1, <input type="text" value={item}></input>);
+    setArrayItem([...theArray]);
+  }
+
   return (
     <div className="App">
       <h1>you have {theArray.length} items on your to-do list</h1>
@@ -25,10 +30,11 @@ function App() {
         <button onClick={() => setArrayItem([...theArray, inputToAdd])}>add item</button>
       </div>
       <ul className='listing'>
-        {theArray.map(item => {
+        {theArray.map((item, index) => {
           return (
             <div className='toDoItem'>
-              <li className="arrayItems">{item}</li>
+              <li className="arrayItems">{index + 1} - {item}</li>
+              <button>✏️</button>
               <button onClick={() => {removeItem(item)}}>✓</button>
             </div>
           )
