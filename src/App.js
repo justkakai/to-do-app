@@ -8,8 +8,6 @@ function App() {
 
   const [theArray, setArrayItem] = useState(initialArray);
   const [inputToAdd, setInputToAdd] = useState("");
-  const [itemToEdit, setEdit] = useState("");
-  const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('theArray', JSON.stringify(theArray));
@@ -25,62 +23,6 @@ function App() {
     setArrayItem([...theArray]);
   }
 
-  const editItem = function (item) {
-    setToggle(!toggle);
-    if (!toggle) {
-      theArray.splice(theArray.indexOf(item), 1, itemToEdit);
-      setArrayItem([...theArray]);
-    } else {
-      setArrayItem([...theArray]);
-    }
-  }
-
-  /*
-  const toggleItem = function () {
-    setToggle(!toggle);
-
-    return function () {
-      setToggle(!toggle);
-    }
-  }
-  */
- 
-  /*
-  const editItem = function (item) {
-    setToggle(!toggle);
-    if (toggle) {
-      console.log(theArray.indexOf(item));
-      theArray.splice(theArray.indexOf(item), 1, <input className='editedInput' type="text" value={item}></input>);
-      setArrayItem([...theArray]);
-    } else {
-      theArray.splice(theArray.indexOf(<input className='editedInput' type="text" value={item}></input>), 1, item);
-      setArrayItem([...theArray]);
-    }
-  }
-  */
-
-  /*
-    return (
-      <div className="App">
-        {theArray.length === 1? <h1>you have {theArray.length} item on your to-do list</h1> : <h1>you have {theArray.length} items on your to-do list</h1>}
-        <div className='input-container'>
-          <input type="text" onChange={(e) => setInputToAdd(e.target.value)} value={inputToAdd} />
-          <button onClick={clearInput}>add to list</button>
-        </div>
-        <ul className='listing'>
-          {theArray.map((item, index) => {
-            return (
-              <div className='toDoItem'>
-                <li className="arrayItems">{index + 1} - {item}</li>
-                <button className='edit-button'>✏️</button>
-                <button onClick={() => {removeItem(item)}}>✓</button>
-              </div>
-            )
-          })}
-        </ul>
-      </div>
-    );
-  */
   return (
     <div className="App">
       {theArray.length === 1 ? <h1>you have {theArray.length} item on your to-do list</h1> : <h1>you have {theArray.length} items on your to-do list</h1>}
@@ -92,9 +34,8 @@ function App() {
         {theArray.map((item, index) => {
           return (
             <div className='toDoItem'>
-              {/* <li className="arrayItems">{index + 1} - {item}</li>  */}
-              {toggle ? <input className='editedInput' type="text" onChange={(e) => setEdit(e.target.value)} value={itemToEdit}></input> : <li className="arrayItems">{index + 1} - {item}</li>}
-              <button className='edit-button' onClick={() => {editItem(item)}}>✏️</button>
+              <li className="arrayItems">{index + 1} - {item}</li>
+              <button className='edit-button'>✏️</button>
               <button onClick={() => { removeItem(item) }}>✓</button>
             </div>
           )
@@ -105,5 +46,3 @@ function App() {
 }
 
 export default App;
-
-
