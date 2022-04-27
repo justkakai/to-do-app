@@ -8,13 +8,14 @@ function App() {
 
   const [theArray, setArrayItem] = useState(initialArray);
   const [inputToAdd, setInputToAdd] = useState("");
+  const [itemToEdit, setEdit] = useState("");
   const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('theArray', JSON.stringify(theArray));
   }, [theArray])
 
-  const clearInput = function () {
+  const updateArray = function () {
     setArrayItem([...theArray, inputToAdd]);
     setInputToAdd("");
   }
@@ -23,6 +24,27 @@ function App() {
     theArray.splice(theArray.indexOf(item), 1);
     setArrayItem([...theArray]);
   }
+
+  const editItem = function (item) {
+    setToggle(!toggle);
+    if (!toggle) {
+      theArray.splice(theArray.indexOf(item), 1, itemToEdit);
+      setArrayItem([...theArray]);
+    } else {
+      setArrayItem([...theArray]);
+    }
+  }
+
+  /*
+  const toggleItem = function () {
+    setToggle(!toggle);
+
+    return function () {
+      setToggle(!toggle);
+    }
+  }
+  */
+ 
   /*
   const editItem = function (item) {
     setToggle(!toggle);
@@ -64,15 +86,15 @@ function App() {
       {theArray.length === 1 ? <h1>you have {theArray.length} item on your to-do list</h1> : <h1>you have {theArray.length} items on your to-do list</h1>}
       <div className='input-container'>
         <input type="text" onChange={(e) => setInputToAdd(e.target.value)} value={inputToAdd} />
-        <button onClick={clearInput}>add to list</button>
+        <button onClick={updateArray}>add to list</button>
       </div>
       <ul className='listing'>
         {theArray.map((item, index) => {
           return (
             <div className='toDoItem'>
-              {/* <li className="arrayItems">{index + 1} - {item}</li> */}
-              {toggle ? <input className='editedInput' type="text" value={item}></input> : <li className="arrayItems">{index + 1} - {item}</li>}
-              <button className='edit-button' onClick={() => setToggle(!toggle)}>✏️</button>
+              {/* <li className="arrayItems">{index + 1} - {item}</li>  */}
+              {toggle ? <input className='editedInput' type="text" onChange={(e) => setEdit(e.target.value)} value={itemToEdit}></input> : <li className="arrayItems">{index + 1} - {item}</li>}
+              <button className='edit-button' onClick={() => {editItem(item)}}>✏️</button>
               <button onClick={() => { removeItem(item) }}>✓</button>
             </div>
           )

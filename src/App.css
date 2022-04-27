@@ -74,9 +74,14 @@ input {
 }
 
 .editedInput {
+  font-family: 'Bad Script', cursive;
   display: flex;
   justify-content: flex-end;
+  font-weight: 400;
+  font-size: 1.2rem;
   width: 11.5rem;
+  text-align: end;
+  padding-right: 0.3em;
 }
 
 .input-container button {
