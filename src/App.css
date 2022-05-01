@@ -114,3 +114,9 @@ input {
   overflow-y: auto;
   padding-right: 0.5rem;
 }
+
+@media (max-width:1900px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
