@@ -60,15 +60,19 @@ function App() {
       </form>
 
       <ul className='listing'>
+        
         {theArray.map((item, index) => (
           <li className={listClasses.join(" ")} key={item.id}>
+
             {todoEditing === item.id ? <input className='editedInput' type="text" onChange={(e) => setEdit(e.target.value)} value={itemToEdit}></input> : <span>{item.text}</span>}
+
             <div className='button-container'>
               {todoEditing === item.id ? 
               <button onClick={() => editItem(item.id)}>👍</button> :
               <button className='edit-button' onClick={() => setTodoEditing(item.id)}>✏️</button>}
               <button onClick={() => removeItem(index)}>✓</button>
             </div>
+
           </li>
           ))
         }
