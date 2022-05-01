@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Delius+Swash+Caps&display=swap');
 
 .App {
@@ -11,35 +12,25 @@
   margin: 0 auto;
   border-radius: 5px;
   background: rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 0px 0px #7732ff,
-    -0px -0px 0px #3b4aff;
+  box-shadow: 0px 0px 0px #7732FF,
+    -0px -0px 0px #3B4AFF;
 }
-
 ::-webkit-scrollbar {
   width: 0.2em;
 }
-
 ::-webkit-scrollbar-track {
-  /* background: hsl(0, 2%, 22%); */
   background: hsl(0, 0%, 100%);
 }
-
 ::-webkit-scrollbar-thumb {
-  /* background: rgb(64, 108, 254);
-  background: linear-gradient(248deg, rgba(64, 108, 254, 1) 3%, rgba(180, 40, 254, 1) 100%); */
-  /* background: rgb(22, 219, 232); */
   background: linear-gradient(248deg, rgb(147, 140, 246) 3%, rgba(174, 35, 121, 0) 100%);
 }
-
 h1 {
   font-weight: 500;
   color: white;
 }
-
 li {
   list-style-type: none;
 }
-
 button {
   color: white;
   padding: 0.9rem 1.8rem;
@@ -47,21 +38,17 @@ button {
   background: none;
   border-radius: 0px;
 }
-
 button:hover {
   background: rgba(0, 0, 0, 0.1);
 }
-
 button:active {
   box-shadow: none;
 }
-
 .input-container {
   display: flex;
   gap: 10px;
   margin-bottom: 2rem;
 }
-
 input {
   font-family: 'Delius Swash Caps', cursive;
   font-size: 1rem;
@@ -72,7 +59,6 @@ input {
   padding-left: 1rem;
   background: rgba(0, 0, 0, 0.2);
 }
-
 .editedInput {
   font-family: 'Bad Script', cursive;
   display: flex;
@@ -83,24 +69,28 @@ input {
   text-align: end;
   padding-right: 0.3em;
 }
-
 .input-container button {
   font-family: 'Delius Swash Caps', cursive;
   font-size: 1rem;
   background: rgba(255, 255, 255, 0.1);
 }
-
 .input-container button:hover {
   background: rgba(255, 255, 255, 0.2);
 }
-
+::placeholder {
+  font-family: 'Delius Swash Caps', cursive;
+  font-size: 0.8rem;
+  color: rgb(185, 182, 189);
+}
 .toDoItem {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 1em;
   margin-bottom: 0.5rem;
+  padding: 0 0.5rem 0.5rem 0.5rem;
 }
-
-.toDoItem li {
+.toDoItem span {
   font-family: 'Bad Script', cursive;
   display: flex;
   justify-content: flex-end;
@@ -109,23 +99,22 @@ input {
   font-size: 1.2rem;
   color: white;
 }
-
 .toDoItem button {
-  margin-bottom: 1rem;
   padding: 0.5rem 1.2rem;
   background: rgba(255, 255, 255, 0.1);
 }
-
 .toDoItem button:hover {
   background: rgba(255, 255, 255, 0.2);
 }
-
 .toDoItem button:active {
   box-shadow: 0px 0px 2px rgb(235, 232, 236),
     -0px -0px 2px rgb(211, 117, 176);
 }
-
+.button-container {
+  display: flex;
+  gap: 10px;
+}
 .listing {
   overflow-y: auto;
-  padding: 1rem;
+  padding-right: 0.5rem;
 }
